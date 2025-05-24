@@ -1,55 +1,55 @@
-//package iocode.web.app.service;
-//
-//import iocode.web.app.dto.AccountDto;
+package iocode.web.app.service;
+
+import iocode.web.app.dto.AccountDto;
 //import iocode.web.app.dto.ConvertDto;
 //import iocode.web.app.dto.TransferDto;
-//import iocode.web.app.entity.Account;
-//import iocode.web.app.entity.Transaction;
-//import iocode.web.app.entity.User;
-//import iocode.web.app.repository.AccountRepository;
-//import iocode.web.app.service.helper.AccountHelper;
-//import lombok.RequiredArgsConstructor;
-//import org.springframework.stereotype.Service;
-//import org.springframework.transaction.annotation.Transactional;
-//
-//import java.util.List;
-//import java.util.Map;
-//
-///**
-// * This class provides services related to bank accounts.
-// * It handles account creation, retrieval, fund transfer, currency conversion, and exchange rate retrieval.
-// */
-//@Service
-//@RequiredArgsConstructor
-//@Transactional
-//public class AccountService {
-//
-//    private final AccountRepository accountRepository;
-//    private final AccountHelper accountHelper;
+import iocode.web.app.entity.Account;
+import iocode.web.app.entity.Transaction;
+import iocode.web.app.entity.User;
+import iocode.web.app.repository.AccountRepository;
+import iocode.web.app.service.helper.AccountHelper;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ * This class provides services related to bank accounts.
+ * It handles account creation, retrieval, fund transfer, currency conversion, and exchange rate retrieval.
+ */
+@Service
+@RequiredArgsConstructor
+@Transactional
+public class AccountService {
+
+    private final AccountRepository accountRepository;
+    private final AccountHelper accountHelper;
 //    private final ExchangeRateService exchangeRateService;
-//
-//    /**
-//     * Creates a new account for the given user.
-//     *
-//     * @param accountDto The account details.
-//     * @param user The user who owns the account.
-//     * @return The created account.
-//     * @throws Exception If any error occurs during account creation.
-//     */
-//    public Account createAccount(AccountDto accountDto, User user) throws Exception {
-//        return accountHelper.createAccount(accountDto, user);
-//    }
-//
-//    /**
-//     * Retrieves all accounts owned by the user with the given uid.
-//     *
-//     * @param uid The unique identifier of the user.
-//     * @return A list of accounts owned by the user.
-//     */
-//    public List<Account> getUserAccounts(String uid) {
-//        return accountRepository.findAllByOwnerUid(uid);
-//    }
-//
+
+    /**
+     * Creates a new account for the given user.
+     *
+     * @param accountDto The account details.
+     * @param user The user who owns the account.
+     * @return The created account.
+     * @throws Exception If any error occurs during account creation.
+     */
+    public Account createAccount(AccountDto accountDto, User user) throws Exception {
+        return accountHelper.createAccount(accountDto, user);
+    }
+
+    /**
+     * Retrieves all accounts owned by the user with the given uid.
+     *
+     * @param uid The unique identifier of the user.
+     * @return A list of accounts owned by the user.
+     */
+    public List<Account> getUserAccounts(String uid) {
+        return accountRepository.findAllByOwnerUid(uid);
+    }
+
 //    /**
 //     * Transfers funds from one account to another.
 //     *
@@ -92,4 +92,4 @@
 //        System.out.println("Code: " + code);
 //        return accountRepository.findByCodeAndAccountNumber(code, recipientAccountNumber).orElseThrow();
 //    }
-//}
+}
